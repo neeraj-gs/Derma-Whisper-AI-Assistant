@@ -1,0 +1,13 @@
+.env
+.env.local
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.output/
+.vercel/
+.next/
+.nuxt/
+.output/
+.vercel/
