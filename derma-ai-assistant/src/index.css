@@ -118,3 +118,37 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom Styles for Swiper */
+.clinic-gallery .swiper-button-next,
+.clinic-gallery .swiper-button-prev {
+  @apply text-purple-600 bg-white rounded-full w-10 h-10 shadow-lg;
+}
+
+.clinic-gallery .swiper-button-next:after,
+.clinic-gallery .swiper-button-prev:after {
+  @apply text-sm;
+}
+
+.clinic-gallery .swiper-pagination-bullet {
+  @apply bg-purple-600;
+}
+
+.clinic-gallery .swiper-pagination-bullet-active {
+  @apply bg-purple-700;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
