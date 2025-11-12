@@ -1,35 +1,11 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Phone, Mail, MapPin, Clock, Calendar, MessageSquare,
-  Facebook, Instagram, Twitter, Youtube, Send, CheckCircle,
+  Phone, Mail, MapPin, Clock, MessageSquare,
+  Facebook, Instagram, Twitter, Youtube,
   Navigation, Car, Train, Bus
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 export const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    treatment: '',
-    message: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-purple-50">
@@ -125,116 +101,7 @@ export const ContactPage = () => {
           </div>
 
           {/* Main Contact Section */}
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-              className="bg-white rounded-2xl shadow-lg p-8"
-            >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Book Your Consultation</h2>
-
-              {submitted ? (
-                <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
-                  <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-3" />
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Thank You!</h3>
-                  <p className="text-gray-600">We've received your message and will contact you soon.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Your Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        required
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                        placeholder="+91 98765 43210"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Treatment Interest
-                    </label>
-                    <select
-                      name="treatment"
-                      value={formData.treatment}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    >
-                      <option value="">Select a treatment</option>
-                      <option value="laser-hair">Laser Hair Reduction</option>
-                      <option value="acne">Acne Treatment</option>
-                      <option value="anti-aging">Anti-Aging</option>
-                      <option value="pigmentation">Pigmentation</option>
-                      <option value="hair-restoration">Hair Restoration</option>
-                      <option value="hydrafacial">HydraFacial</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      placeholder="Tell us about your skin concerns..."
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3"
-                  >
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
-                  </Button>
-                </form>
-              )}
-            </motion.div>
-
+          <div className="max-w-4xl mx-auto">
             {/* Location & Info */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}

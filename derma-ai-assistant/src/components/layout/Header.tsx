@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
     { label: 'HOME', path: '/' },
@@ -56,18 +58,25 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
             <div className="flex items-center bg-gray-100 rounded-full p-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className="px-4 py-2 rounded-full text-gray-700 hover:bg-white hover:text-purple-600 transition-all font-medium text-sm tracking-wide"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`px-4 py-2 rounded-full transition-all font-medium text-sm tracking-wide ${
+                      isActive
+                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                        : 'text-gray-700 hover:bg-white hover:text-purple-600'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
             <Button
-              id="ai-assistant-trigger"
+              onClick={() => navigate('/voice-agent')}
               className="ml-4 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
             >
               CALL US
@@ -87,18 +96,28 @@ export const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t shadow-lg">
             <div className="container mx-auto px-4 py-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className="block py-3 text-gray-700 hover:text-purple-600 transition-colors font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`block py-3 transition-colors font-medium ${
+                      isActive
+                        ? 'text-purple-600 border-l-4 border-purple-600 pl-3'
+                        : 'text-gray-700 hover:text-purple-600'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               <Button
-                id="ai-assistant-trigger-mobile"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate('/voice-agent');
+                }}
                 className="w-full mt-4 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-3 rounded-full shadow-lg"
               >
                 CALL US

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube, Shield } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -100,6 +100,10 @@ export const Footer = () => {
               </Link>
               <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Terms of Service
+              </Link>
+              <Link to="/admin" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-1">
+                <Shield className="w-4 h-4" />
+                Admin Login
               </Link>
             </div>
           </div>
