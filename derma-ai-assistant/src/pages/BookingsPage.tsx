@@ -14,8 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import {
   getAppointments,
-  getUsers,
-  getTreatments,
+  getPatients,
   createAppointment,
   updateAppointment,
   deleteAppointment
@@ -139,23 +138,23 @@ const BookingsPage: React.FC = () => {
   const fetchBookingsData = async () => {
     setLoading(true);
     try {
-      // Fetch appointments
+      // Fetch appointments from your database
       const { data: appointmentsData } = await getAppointments();
       if (appointmentsData && appointmentsData.length > 0) {
         const formattedAppointments = appointmentsData.map((apt: any) => ({
           id: apt.id,
-          title: `${apt.users?.name || 'Patient'} - ${apt.treatments?.name || 'Treatment'}`,
+          title: `${apt.patients?.full_name || apt.patient_name} - ${apt.primary_concern}`,
           start: `${apt.appointment_date}T${apt.appointment_time}`,
           end: `${apt.appointment_date}T${addHours(apt.appointment_time, 1)}`,
           backgroundColor: getStatusColor(apt.status),
           borderColor: getStatusColor(apt.status),
           extendedProps: {
-            patientName: apt.users?.name || '',
-            patientEmail: apt.users?.email || '',
-            patientPhone: apt.users?.phone || '',
-            treatment: apt.treatments?.name || '',
+            patientName: apt.patients?.full_name || apt.patient_name,
+            patientEmail: apt.patients?.email || apt.patient_email,
+            patientPhone: apt.patients?.phone_number || apt.patient_phone,
+            treatment: apt.primary_concern,
             status: apt.status,
-            notes: apt.notes || ''
+            notes: apt.call_summary || ''
           }
         }));
         setAppointments(formattedAppointments);
@@ -164,14 +163,8 @@ const BookingsPage: React.FC = () => {
         setAppointments(mockAppointments);
       }
 
-      // Fetch treatments
-      const { data: treatmentsData } = await getTreatments();
-      if (treatmentsData) {
-        setTreatments(treatmentsData);
-      }
-
       // Fetch patients
-      const { data: patientsData } = await getUsers();
+      const { data: patientsData } = await getPatients();
       if (patientsData) {
         setPatients(patientsData);
       }
@@ -388,7 +381,7 @@ const BookingsPage: React.FC = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="bg-white rounded-lg shadow p-6">
           <FullCalendar
-            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, googleCalendarPlugin]}
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             initialView="dayGridMonth"
             headerToolbar={{
               left: 'prev,next today',
@@ -403,12 +396,6 @@ const BookingsPage: React.FC = () => {
             selectMirror={true}
             dayMaxEvents={true}
             weekends={true}
-            googleCalendarApiKey={import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY}
-            eventSources={[
-              {
-                googleCalendarId: import.meta.env.VITE_GOOGLE_CALENDAR_ID || 'skinsciencetest@gmail.com'
-              }
-            ]}
             height="auto"
             eventDisplay="block"
             eventTimeFormat={{

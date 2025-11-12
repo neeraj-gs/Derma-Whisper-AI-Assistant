@@ -14,7 +14,6 @@ import { AboutPage } from '@/pages/AboutPage';
 import { TestimonialsPage } from '@/pages/TestimonialsPage';
 import VoiceAgentPage from '@/pages/VoiceAgentPage';
 import AdminDashboardEnhanced from '@/pages/AdminDashboardEnhanced';
-import BookingsPage from '@/pages/BookingsPage';
 
 // Protected Route Component with Clerk Auth
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -43,14 +42,6 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminDashboardEnhanced />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/bookings"
-            element={
-              <ProtectedRoute>
-                <BookingsPage />
               </ProtectedRoute>
             }
           />

@@ -75,8 +75,8 @@ const VoiceAgentPage: React.FC = () => {
               AI Voice Assistant
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Speak directly with our AI assistant to book appointments, get treatment recommendations,
-              and have all your skincare questions answered instantly.
+              Speak directly with our AI assistant to book or manage your appointments, get any relavent information about the clinic,
+              and have all your questions answered instantly.
             </p>
           </div>
 
