@@ -54,19 +54,21 @@ export const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="text-gray-700 hover:text-purple-600 transition-colors font-medium text-sm tracking-wide"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="hidden lg:flex items-center gap-2">
+            <div className="flex items-center bg-gray-100 rounded-full p-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="px-4 py-2 rounded-full text-gray-700 hover:bg-white hover:text-purple-600 transition-all font-medium text-sm tracking-wide"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
             <Button
               id="ai-assistant-trigger"
-              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+              className="ml-4 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
             >
               CALL US
             </Button>

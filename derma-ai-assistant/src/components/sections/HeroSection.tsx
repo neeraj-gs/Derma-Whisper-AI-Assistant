@@ -8,7 +8,7 @@ const slides = [
     id: 1,
     title: "Regain Your Youthful Glow",
     subtitle: "Target Fine Lines, Wrinkles & Sagging Skin with Advanced Anti-Aging Solutions",
-    image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=800&auto=format&fit=crop&q=60",
     features: [
       { number: "01", text: "Minimal Downtime, Maximum Impact" },
       { number: "02", text: "Experienced Aesthetic Specialists" },
@@ -20,7 +20,7 @@ const slides = [
     id: 2,
     title: "Advanced Laser Treatments",
     subtitle: "State-of-the-art technology for flawless skin",
-    image: "https://images.unsplash.com/photo-1609207807107-e8ec2120f9de?w=800&auto=format&fit=crop&q=60",
+    image: "https://d3b3by4navws1f.cloudfront.net/shutterstock_352907537.jpg",
     features: [
       { number: "01", text: "FDA Approved Equipment" },
       { number: "02", text: "Painless Procedures" },
@@ -32,7 +32,7 @@ const slides = [
     id: 3,
     title: "Hair Restoration Excellence",
     subtitle: "Regain your confidence with our proven hair treatments",
-    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop&q=60",
+    image: "https://serenamedicalcenter.com/wp-content/uploads/2025/03/1st-Image-1080x1283-.webp",
     features: [
       { number: "01", text: "PRP Therapy" },
       { number: "02", text: "Advanced Hair Transplant" },
