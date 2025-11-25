@@ -14,6 +14,8 @@ import { AboutPage } from '@/pages/AboutPage';
 import { TestimonialsPage } from '@/pages/TestimonialsPage';
 import VoiceAgentPage from '@/pages/VoiceAgentPage';
 import AdminDashboardEnhanced from '@/pages/AdminDashboardEnhanced';
+import VoiceAIProductDemo from '@/pages/VoiceAIProductDemo';
+import PublicDemoDashboard from '@/pages/PublicDemoDashboard';
 
 // Protected Route Component with Clerk Auth
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -35,6 +37,10 @@ function App() {
     <Router>
       <div className="min-h-screen flex flex-col">
         <Routes>
+          {/* Demo Routes (standalone, no header/footer) */}
+          <Route path="/voice-ai-demo" element={<VoiceAIProductDemo />} />
+          <Route path="/demo-dashboard" element={<PublicDemoDashboard />} />
+
           {/* Admin Routes (without header/footer) */}
           <Route path="/admin" element={<AdminLogin />} />
           <Route
