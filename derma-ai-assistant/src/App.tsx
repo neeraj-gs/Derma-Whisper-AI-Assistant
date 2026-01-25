@@ -5,7 +5,6 @@ import { Footer } from '@/components/layout/Footer';
 import { AIAssistant } from '@/components/AIAssistant';
 import { Home } from '@/pages/Home';
 import { AdminLogin } from '@/pages/AdminLogin';
-import { AdminDashboard } from '@/pages/AdminDashboard';
 import { ConcernsPage } from '@/pages/ConcernsPage';
 import { TreatmentsPage } from '@/pages/TreatmentsPage';
 import { GalleryPage } from '@/pages/GalleryPage';

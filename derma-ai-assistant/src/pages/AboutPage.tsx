@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, Users, Calendar, Shield, Target, Heart, Star, TrendingUp } from 'lucide-react';
+import { Award, Users, Shield, Target, Heart, Star, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const milestones = [

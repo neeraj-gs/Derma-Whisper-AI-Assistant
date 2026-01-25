@@ -76,23 +76,23 @@ const AdminDashboardEnhanced: React.FC = () => {
   const [filterStatus, setFilterStatus] = useState('all');
 
   // Use dummy data
-  const [stats, setStats] = useState<DashboardStats>(generateDummyStats());
-  const [appointmentTrend, setAppointmentTrend] = useState<any[]>(generateAppointmentTrends());
-  const [concernsData, setConcernsData] = useState<any[]>(generateConcernsData());
-  const [patientGrowthData, setPatientGrowthData] = useState<any[]>(generatePatientGrowth());
-  const [statusDistribution, setStatusDistribution] = useState<any[]>(generateStatusDistribution());
-  const [revenueData, setRevenueData] = useState<any[]>(generateRevenueData());
-  const [allAppointments, setAllAppointments] = useState<any[]>(generateDummyAppointments());
-  const [allPatients, setAllPatients] = useState<any[]>(generateDummyPatients());
-  const [hourlyData, setHourlyData] = useState<any[]>(generateHourlyAppointments());
-  const [doctorPerformance, setDoctorPerformance] = useState<any[]>(generateDoctorPerformance());
+  const [stats] = useState<DashboardStats>(generateDummyStats());
+  const [appointmentTrend] = useState<any[]>(generateAppointmentTrends());
+  const [concernsData] = useState<any[]>(generateConcernsData());
+  const [patientGrowthData] = useState<any[]>(generatePatientGrowth());
+  const [_statusDistribution] = useState<any[]>(generateStatusDistribution());
+  const [revenueData] = useState<any[]>(generateRevenueData());
+  const [allAppointments] = useState<any[]>(generateDummyAppointments());
+  const [allPatients] = useState<any[]>(generateDummyPatients());
+  const [hourlyData] = useState<any[]>(generateHourlyAppointments());
+  const [doctorPerformance] = useState<any[]>(generateDoctorPerformance());
 
   // Call Logs dummy data
-  const [allCallLogs, setAllCallLogs] = useState<any[]>(generateCallLogs());
-  const [callVolumeTrends, setCallVolumeTrends] = useState<any[]>(generateCallVolumeTrends());
-  const [callOutcomes, setCallOutcomes] = useState<any[]>(generateCallOutcomes());
-  const [callDurationStats, setCallDurationStats] = useState<any>(generateCallDurationStats());
-  const [uniqueCallersCount, setUniqueCallersCount] = useState(673);
+  const [allCallLogs] = useState<any[]>(generateCallLogs());
+  const [callVolumeTrends] = useState<any[]>(generateCallVolumeTrends());
+  const [callOutcomes] = useState<any[]>(generateCallOutcomes());
+  const [callDurationStats] = useState<any>(generateCallDurationStats());
+  const [uniqueCallersCount] = useState(673);
 
   // Advanced Analytics dummy data
   const [weeklyActivity] = useState<any[]>(generateWeeklyActivity());
@@ -455,7 +455,7 @@ const AdminDashboardEnhanced: React.FC = () => {
                         cx="50%"
                         cy="50%"
                         labelLine={false}
-                        label={({ name, percent }) => `${name.split(' ')[0]} ${((percent || 0) * 100).toFixed(0)}%`}
+                        label={({ name, percent }) => `${(name || '').split(' ')[0]} ${((percent || 0) * 100).toFixed(0)}%`}
                         outerRadius={90}
                         fill="#8884d8"
                         dataKey="value"
@@ -1048,7 +1048,7 @@ const AdminDashboardEnhanced: React.FC = () => {
                         cx="50%"
                         cy="50%"
                         labelLine={false}
-                        label={({ name, percent }) => `${name.split(' ')[0]} ${((percent || 0) * 100).toFixed(0)}%`}
+                        label={({ name, percent }) => `${(name || '').split(' ')[0]} ${((percent || 0) * 100).toFixed(0)}%`}
                         outerRadius={100}
                         fill="#8884d8"
                         dataKey="value"
@@ -1150,7 +1150,7 @@ const AdminDashboardEnhanced: React.FC = () => {
                       <YAxis dataKey="range" type="category" stroke="#9ca3af" width={80} />
                       <Tooltip contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }} />
                       <Bar dataKey="calls" radius={[0, 8, 8, 0]}>
-                        {callDurationDistribution.map((entry, index) => (
+                        {callDurationDistribution.map((_entry, index) => (
                           <Cell key={`cell-${index}`} fill={['#8b5cf6', '#a855f7', '#c084fc', '#d8b4fe', '#e9d5ff'][index]} />
                         ))}
                       </Bar>

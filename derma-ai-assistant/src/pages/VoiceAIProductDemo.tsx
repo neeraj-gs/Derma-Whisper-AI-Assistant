@@ -141,8 +141,47 @@ const VoiceAIProductDemo: React.FC = () => {
         </div>
       </div>
 
+      {/* Video Demo Section */}
+      <div id="video-demo" className="py-20 bg-gradient-to-b from-slate-900 to-purple-950">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur-md rounded-full border border-pink-400/30 mb-6">
+                <Video className="w-5 h-5 text-pink-300" />
+                <span className="text-white font-semibold">Watch Demo</span>
+              </div>
+              <h2 className="text-5xl font-bold text-white mb-4">
+                See It In Action
+              </h2>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                Watch how our AI Voice Agent handles real conversations, books appointments, and delivers exceptional customer service.
+              </p>
+            </div>
+
+            {/* Video Container */}
+            <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-xl rounded-3xl shadow-2xl p-4 md:p-6 border-2 border-purple-400/30">
+              <div className="relative w-full rounded-2xl overflow-hidden" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src="https://share.descript.com/embed/7BJaQorOwH8"
+                  className="absolute top-0 left-0 w-full h-full rounded-2xl border-0"
+                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Video Caption */}
+            <div className="mt-8 text-center">
+              <p className="text-gray-400 text-sm">
+                This demo showcases a real conversation with our AI receptionist handling appointment booking
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Live Demo Section */}
-      <div id="live-demo" className="py-20 bg-gradient-to-b from-slate-900 to-purple-950">
+      <div id="live-demo" className="py-20 bg-gradient-to-b from-purple-950 to-slate-900">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">

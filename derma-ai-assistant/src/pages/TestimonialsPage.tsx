@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote, ChevronLeft, ChevronRight, Play, ThumbsUp, Calendar, Award, Filter } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight, Play, Calendar, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const testimonials = [

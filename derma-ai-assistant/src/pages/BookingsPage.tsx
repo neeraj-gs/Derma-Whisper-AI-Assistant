@@ -5,11 +5,9 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import {
-  Calendar, Clock, User, Phone, Mail, FileText,
-  Check, X, Edit, Trash2, Plus, ArrowLeft, Filter,
-  Download, Upload, Search, ChevronLeft, ChevronRight
+  Trash2, Plus, ArrowLeft,
+  Download, Upload, Search, Filter
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -39,15 +37,15 @@ interface Appointment {
 
 const BookingsPage: React.FC = () => {
   const navigate = useNavigate();
-  const { signOut } = useClerk();
+  const { signOut: _signOut } = useClerk();
   const [appointments, setAppointments] = useState<Appointment[]>([]);
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [_selectedDate, _setSelectedDate] = useState<Date>(new Date());
   const [selectedAppointment, setSelectedAppointment] = useState<Appointment | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [treatments, setTreatments] = useState<any[]>([]);
-  const [patients, setPatients] = useState<any[]>([]);
+  const [_treatments, _setTreatments] = useState<any[]>([]);
+  const [_patients, setPatients] = useState<any[]>([]);
   const [filterStatus, setFilterStatus] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -225,7 +223,7 @@ const BookingsPage: React.FC = () => {
         notes: formData.notes
       };
 
-      const { data, error } = await createAppointment(newAppointment);
+      const { error } = await createAppointment(newAppointment);
       if (!error) {
         fetchBookingsData();
         setShowAddModal(false);

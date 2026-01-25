@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Clock, Shield, Star, ArrowRight } from 'lucide-react';
+import { ChevronRight, Clock, Shield, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const treatments = [

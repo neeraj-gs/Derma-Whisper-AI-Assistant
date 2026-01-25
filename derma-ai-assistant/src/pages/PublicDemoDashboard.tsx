@@ -66,13 +66,13 @@ const PublicDemoDashboard: React.FC = () => {
 
   // Use dummy data
   const [stats] = useState<DashboardStats>(generateDummyStats());
-  const [appointmentTrend] = useState<any[]>(generateAppointmentTrends());
+  const [_appointmentTrend] = useState<any[]>(generateAppointmentTrends());
   const [concernsData] = useState<any[]>(generateConcernsData());
   const [patientGrowthData] = useState<any[]>(generatePatientGrowth());
-  const [revenueData] = useState<any[]>(generateRevenueData());
-  const [allCallLogs] = useState<any[]>(generateCallLogs());
-  const [callVolumeTrends] = useState<any[]>(generateCallVolumeTrends());
-  const [callOutcomes] = useState<any[]>(generateCallOutcomes());
+  const [_revenueData] = useState<any[]>(generateRevenueData());
+  const [_allCallLogs] = useState<any[]>(generateCallLogs());
+  const [_callVolumeTrends] = useState<any[]>(generateCallVolumeTrends());
+  const [_callOutcomes] = useState<any[]>(generateCallOutcomes());
   const [callDurationStats] = useState<any>(generateCallDurationStats());
   const [uniqueCallersCount] = useState(673);
 
@@ -80,8 +80,8 @@ const PublicDemoDashboard: React.FC = () => {
   const [weeklyActivity] = useState<any[]>(generateWeeklyActivity());
   const [treatmentPopularity] = useState<any[]>(generateTreatmentPopularity());
   const [ageDistribution] = useState<any[]>(generateAgeDistribution());
-  const [genderDistribution] = useState<any[]>(generateGenderDistribution());
-  const [timeSlotPopularity] = useState<any[]>(generateTimeSlotPopularity());
+  const [_genderDistribution] = useState<any[]>(generateGenderDistribution());
+  const [_timeSlotPopularity] = useState<any[]>(generateTimeSlotPopularity());
   const [monthlyComparison] = useState<any[]>(generateMonthlyComparison());
   const [referralSources] = useState<any[]>(generateReferralSources());
   const [satisfactionTrends] = useState<any[]>(generateSatisfactionTrends());
@@ -721,7 +721,7 @@ const PublicDemoDashboard: React.FC = () => {
                         <YAxis dataKey="range" type="category" stroke="#9ca3af" width={80} />
                         <Tooltip contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }} />
                         <Bar dataKey="calls" radius={[0, 8, 8, 0]}>
-                          {callDurationDistribution.map((entry, index) => (
+                          {callDurationDistribution.map((_entry, index) => (
                             <Cell key={`cell-${index}`} fill={['#8b5cf6', '#a855f7', '#c084fc', '#d8b4fe', '#e9d5ff'][index]} />
                           ))}
                         </Bar>

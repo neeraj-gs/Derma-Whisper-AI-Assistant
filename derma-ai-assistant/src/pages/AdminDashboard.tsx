@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Calendar, Clock, User, Mail, Phone, FileText,
-  CheckCircle, XCircle, AlertCircle, Search, Filter,
-  Download, LogOut, TrendingUp, Users, DollarSign
+  Calendar, Clock, User,
+  CheckCircle, AlertCircle, Search,
+  Download, LogOut
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { supabase, getAppointments, updateAppointment, signOut } from '@/services/supabase';
+import { getAppointments, updateAppointment } from '@/services/supabase';
 import type { Appointment } from '@/types';
 
 export const AdminDashboard = () => {
@@ -107,9 +107,8 @@ export const AdminDashboard = () => {
   };
 
   const handleLogout = async () => {
-    await signOut();
     // Redirect to login page
-    window.location.href = '/login';
+    window.location.href = '/admin';
   };
 
   // Filter appointments

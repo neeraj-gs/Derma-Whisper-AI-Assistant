@@ -34,7 +34,10 @@ export const AIAssistant = () => {
           // If already connected, you might want to show a modal or handle it differently
           console.log('AI Assistant already active');
         } else {
-          conversation.connect();
+          conversation.startSession({
+            agentId: import.meta.env.VITE_ELEVENLABS_AGENT_ID || 'YOUR_AGENT_ID',
+            connectionType: 'webrtc'
+          });
         }
       };
 
@@ -80,7 +83,7 @@ export const AIAssistant = () => {
               Speak naturally to book appointments or ask questions about our treatments.
             </p>
             <button
-              onClick={() => conversation.disconnect()}
+              onClick={() => conversation.endSession()}
               className="mt-3 text-xs text-red-600 hover:text-red-700 font-medium"
             >
               End Conversation

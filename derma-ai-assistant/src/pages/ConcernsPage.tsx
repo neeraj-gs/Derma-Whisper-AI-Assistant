@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Activity, Palette, Zap, RefreshCw, Sun, Sparkles, Heart, Brain, Eye, Droplet, Shield, Star } from 'lucide-react';
+import { Activity, Palette, RefreshCw, Sun, Sparkles, Heart, Eye, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
